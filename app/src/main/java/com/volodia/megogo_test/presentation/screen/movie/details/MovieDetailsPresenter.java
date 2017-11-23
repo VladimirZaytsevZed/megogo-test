@@ -52,11 +52,7 @@ public class MovieDetailsPresenter extends BasePresenterImpl<MovieDetailsScreenC
     }
 
     public void checkForUpdateViewState() {
-        Log.v("XXX", "updateViewState ");
-        Log.v("XXX", "view state " + viewState);
-        Log.v("XXX", "request state " + requestState);
         if (!isDataActual()) {
-            Log.v("XXX", "data not Actual ");
             updateViewState();
         }
     }
@@ -93,7 +89,6 @@ public class MovieDetailsPresenter extends BasePresenterImpl<MovieDetailsScreenC
     @Override
     public void onViewAttached(final MovieDetailsScreenContract.View movieScreenView) {
         super.onViewAttached(movieScreenView);
-        Log.v("XXX", "onViewAttached requestState " + requestState);
         if (requestState == DataState.NONE) {
             loadMovieDetails();
         } else {
@@ -102,7 +97,6 @@ public class MovieDetailsPresenter extends BasePresenterImpl<MovieDetailsScreenC
     }
 
     private void loadMovieDetails() {
-        Log.v("YYY", "loadMovieDetails ");
         if (view == null) return;
         requestState = DataState.PROGRESS;
 
@@ -117,8 +111,6 @@ public class MovieDetailsPresenter extends BasePresenterImpl<MovieDetailsScreenC
                     return;
                 }
 
-                Log.v("XXX", "onResponse " + response.body());
-
                 requestState = DataState.READY;
                 movieDetails = MovieDetails.getFrom(response.body());
 
@@ -129,7 +121,6 @@ public class MovieDetailsPresenter extends BasePresenterImpl<MovieDetailsScreenC
 
             @Override
             public void onFailure(Call<MovieDetailsResponse> call, Throwable t) {
-                Log.v("XXX", "onFailure");
                 requestState = DataState.ERROR;
 
                 if (view != null) {

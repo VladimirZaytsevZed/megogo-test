@@ -63,9 +63,6 @@ public class MovieDetailsFragment extends BaseViewFragment<MovieDetailsPresenter
 
     }
 
-    private void initToolbar() {
-    }
-
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -77,9 +74,7 @@ public class MovieDetailsFragment extends BaseViewFragment<MovieDetailsPresenter
     @Override
     public void inject() {
         MoviesViewModel moviesViewModel = ViewModelProviders.of(getActivity()).get(MoviesViewModel.class);
-        Log.v("XXX", "inject moviesViewModel " + moviesViewModel);
         moviesViewModel.getMoviesComponent().inject(this);
-        Log.v("XXX", "inject component " + moviesViewModel.getMoviesComponent());
     }
 
     @OnClick(R.id.btn_retry)
