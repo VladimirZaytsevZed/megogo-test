@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">megogo_test</string>
+    <string name="page_load_error">Error loading page! Click to retry!</string>
+    <string name="text_btn_retry">Retry</string>
+    <string name="error_title">Something went wrong</string>
+    <string name="error_description">Please try again!</string>
+    <string name="title_movie_list">Movies</string>
+    <string name="title_movie_details">Movie Details</string>
 </resources>
