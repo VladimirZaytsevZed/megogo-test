@@ -105,11 +105,12 @@ public class MovieDetailsPresenter extends BasePresenterImpl<MovieDetailsScreenC
         retrofitApi.getMovieDetails(movieId, API_KEY, LANGUAGE).enqueue(new Callback<MovieDetailsResponse>() {
             @Override
             public void onResponse(Call<MovieDetailsResponse> call, Response<MovieDetailsResponse> response) {
-                //k++;
+                //k++;   for testing error
                 if (k % 2 == 0) {
                     onFailure(null, null);
                     return;
                 }
+                /////////////////////
 
                 requestState = DataState.READY;
                 movieDetails = MovieDetails.getFrom(response.body());
